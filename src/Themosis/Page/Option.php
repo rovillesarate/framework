@@ -20,7 +20,12 @@ class Option
         {
             if (!is_null($name))
             {
-                return $option[$name];
+                if(array_key_exists($name, $option)) {
+                  return $option[$name];                   
+                } else {
+                  return '';
+                }
+
             }
 
             return $option;
