@@ -16,11 +16,12 @@ class Option
     {
         $option = get_option($optionGroup);
 
-        if (!empty($option))
+        if (!is_null($name))
         {
-            if (isset($option[$name]))
-            {
+            if (array_key_exists($name, $option)) {
                 return $option[$name];
+            } else {
+                return '';
             }
         }
 
