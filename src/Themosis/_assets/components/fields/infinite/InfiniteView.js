@@ -302,8 +302,15 @@ class InfiniteView extends Backbone.View
      */
     renameName(currentName, index)
     {
-        let regex = new RegExp("([0-9]+)\]");
-        return currentName.replace(regex, index + ']');
+        // let regex = new RegExp("([0-9]+)\]");
+
+        let regex = new RegExp("\\d\\]\\[\\w{1,100}\\]$");
+        let match = new RegExp("\\]\\[\\w{1,100}\\]$");
+        let mateched = currentName.match(match);
+
+        //return currentName.replace(regex, index + ']');
+
+        return currentName.replace(regex, index + matched);
     }
 
     /**
